@@ -63,7 +63,7 @@ const Cart = () => {
                     <img
                       src={
                         item.product.images[0]
-                          ? `http://localhost:5000${item.product.images[0]}`
+                          ? item.product.images[0]
                           : "https://via.placeholder.com/100x130"
                       }
                       alt={item.product.name}

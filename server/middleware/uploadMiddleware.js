@@ -1,33 +1,31 @@
+const cloudinary = require('cloudinary').v2;
+const { CloudinaryStorage } = require('multer-storage-cloudinary');
 const multer = require('multer');
-const path = require('path');
 
 
 
-const storage = multer.diskStorage({
-     destination: (req, file, cb) =>cb(null, 'uploads/'),
-     filename: (req, file, cb) =>{
-        const ext = path.extname(file.originalname);
-        cb(null, `${file.fieldname}-${Date.now()}${ext}`)
-     },
+cloudinary.config({
+  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+  api_key: process.env.CLOUDINARY_API_KEY,
+  api_secret: process.env.CLOUDINARY_API_SECRET,
 });
 
 
 
-const fileFilter = (req, file, cb ) => {
-    const allowed = /jpeg|jpg|png|gif|webp/;
-    const ok = allowed.test(path.extname(file.originalname).toLowerCase());
-    if(ok) return cb(null, true);
-    cb(new Error('Only image files (jpg, jpeg, png, webp) are allowed'))
-};
+const storage = new CloudinaryStorage({
+  cloudinary,
+  params: {
+    folder: 'finefit-products',
+    allowed_formats: ['jpg', 'jpeg', 'png', 'webp'],
+    transformation: [{ width: 1000, height: 1250, crop: 'limit' }],
+  },
+});
 
 
 
 const upload = multer({
-    storage,
-    fileFilter,
-    limits: {fileSize: 1024 * 1024 * 5}, // 5MB
+  storage,
+  limits: { fileSize: 5 * 1024 * 1024 },
 });
-
-
 
 module.exports = upload;

@@ -52,10 +52,7 @@ const ProductDetails = () => {
       : ["https://via.placeholder.com/600x750?text=FineFit"];
 
   const isPlaceholder = product.images.length === 0;
-  const mainImageSrc = isPlaceholder
-    ? images[activeImage]
-    : `http://localhost:5000${images[activeImage]}`;
-
+  const mainImageSrc = images[activeImage];
   return (
     <Container className="py-5">
       <Row className="g-5">
@@ -97,7 +94,7 @@ const ProductDetails = () => {
                   }}
                 >
                   <img
-                    src={isPlaceholder ? img : `http://localhost:5000${img}`}
+                    src={img}
                     alt={`${product.name} ${idx + 1}`}
                     style={{
                       width: "100%",

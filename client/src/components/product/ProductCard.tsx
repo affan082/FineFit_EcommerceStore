@@ -18,7 +18,7 @@ const ProductCard = ({ product }: { product: Product }) => {
         }}
       >
         <img
-          src={`http://localhost:5000${image}`}
+          src={image}
           alt={product.name}
           style={{ width: "100%", height: "100%", objectFit: "cover" }}
         />

@@ -20,6 +20,8 @@ import Footer from "./components/layout/Footer";
 import NotFound from "./pages/NotFound";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ForgotPassword from "./pages/ForgotPassword";
+import ResetPassword from "./pages/ResetPassword";
 
 function App() {
   return (
@@ -33,7 +35,8 @@ function App() {
           <Route path="/shop/:category" element={<Shop />} />
           <Route path="/product/:id" element={<ProductDetails />} />
           <Route path="/cart" element={<Cart />} />
-
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password/:token" element={<ResetPassword />} />
           <Route element={<PrivateRoute />}>
             <Route path="/checkout" element={<Checkout />} />
             <Route path="/order/:id" element={<OrderDetails />} />

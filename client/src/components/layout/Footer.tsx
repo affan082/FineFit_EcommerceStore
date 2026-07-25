@@ -51,8 +51,7 @@ const Footer = () => {
               className="d-flex flex-column gap-2 font-mono"
               style={{ fontSize: "0.85rem" }}
             >
-              <span className="text-stone">support@finefit.com</span>
-              <span className="text-stone">Mon–Sat, 10AM–7PM</span>
+              <span className="text-stone">support.finefit@gmail.com</span>
             </div>
           </Col>
         </Row>

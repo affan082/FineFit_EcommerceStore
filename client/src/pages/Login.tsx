@@ -40,7 +40,7 @@ const Login = () => {
             style={{ borderRadius: 0 }}
           />
         </Form.Group>
-        <Form.Group className="mb-4">
+        <Form.Group className="mb-2">
           <Form.Label className="tag-label">Password</Form.Label>
           <Form.Control
             type="password"
@@ -50,6 +50,9 @@ const Login = () => {
             style={{ borderRadius: 0 }}
           />
         </Form.Group>
+        <p className="mb-4 font-mono" style={{ fontSize: "0.8rem" }}>
+          <Link to="/forgot-password">Forgot password?</Link>
+        </p>
         <Button type="submit" className="btn-ink w-100" disabled={loading}>
           {loading ? "Logging in..." : "LOGIN"}
         </Button>
