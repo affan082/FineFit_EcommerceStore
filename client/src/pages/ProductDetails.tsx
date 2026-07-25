@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Container, Row, Col, Button, Form, Alert } from "react-bootstrap";
+import { Container, Row, Col, Button, Form } from "react-bootstrap";
 import { useParams, useNavigate } from "react-router-dom";
 import axiosInstance from "../api/axiosInstance";
 import type { Product } from "../types/product";
@@ -51,7 +51,6 @@ const ProductDetails = () => {
       ? product.images
       : ["https://via.placeholder.com/600x750?text=FineFit"];
 
-  const isPlaceholder = product.images.length === 0;
   const mainImageSrc = images[activeImage];
   return (
     <Container className="py-5">

@@ -1,10 +1,4 @@
-import {
-  createContext,
-  useContext,
-  useState,
-  ReactNode,
-  Children,
-} from "react";
+import { createContext, useContext, useState, type ReactNode } from "react";
 import axiosInstance from "../api/axiosInstance";
 import type { User, RegisterData } from "../types/user";
 
