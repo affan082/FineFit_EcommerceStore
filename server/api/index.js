@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
-const dotenv = require('dotenv');
 const mongoose = require('mongoose');
+const dotenv = require('dotenv');
 
 dotenv.config();
 
@@ -15,10 +15,6 @@ app.use(express.json());
 
 app.get('/', (req, res) => res.send('API is running...'));
 
-app.use('/api/auth', require('../routes/authRoutes'));
-app.use('/api/products', require('../routes/productRoutes'));
-app.use('/api/cart', require('../routes/cartRoutes'));
-app.use('/api/orders', require('../routes/orderRoutes'));
 
 let isConnected = false;
 
@@ -32,5 +28,10 @@ app.use(async (req, res, next) => {
     res.status(500).json({ message: 'Database connection failed' });
   }
 });
+
+app.use('/api/auth', require('../routes/authRoutes'));
+app.use('/api/products', require('../routes/productRoutes'));
+app.use('/api/cart', require('../routes/cartRoutes'));
+app.use('/api/orders', require('../routes/orderRoutes'));
 
 module.exports = app;
